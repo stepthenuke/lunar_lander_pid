@@ -3,9 +3,9 @@
 
 ## Dependencies
 ````
-gym version 0.9.2
-numpy 1.13.1
-matplotlib 2.0.0
+gymnasium
+numpy
+matplotlib 
 ````
 
 ## PID Control
