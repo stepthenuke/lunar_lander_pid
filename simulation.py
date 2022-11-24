@@ -1,6 +1,7 @@
 import gymnasium as gym
 import numpy as np
 import typing
+import matplotlib.pyplot as plt
 
 class Simulation():
     def __init__(self, coefficients: list[int|float] = None, contr_type: str = 'pid',
@@ -128,6 +129,7 @@ class Simulation():
     def run(self, coef=None, contr_type=None):
         if coef is None:
             coef = self.coef
+        self._history = []
         env = self.environment
         state, _ = env.reset()
         self._history.append(state)
@@ -141,4 +143,13 @@ class Simulation():
                 break
         return total_reward    
 
-
+    def graph(self):
+        fig, ax = plt.subplots()
+        history = np.array(self._history).T
+        labels = ['x', 'y', 'vx', 'vy', 'angle', 'vangle']
+        for var, lab in zip(history, labels):
+            ax.plot(var, label=lab)
+        ax.set(ylim=(-1.1, 1.1), title='PID control')
+        ax.grid()
+        ax.legend()
+        plt.show()
