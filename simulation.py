@@ -8,7 +8,7 @@ class Simulation():
                  wind=True, turb_power=1, rend_mode='human'):
        
         self.environment = gym.make(
-                'LunarLander-v2',
+                'LunarLander-v3',
                 continuous=True,
                 enable_wind=wind,
                 turbulence_power=turb_power,
