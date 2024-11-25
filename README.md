@@ -4,9 +4,14 @@
 ## Dependencies
 ````
 gymnasium
+gymnasium[box2d]
 numpy
 matplotlib 
 ````
+or
+```
+pip install -r requirements.txt
+```
 
 ## PID Control
 From [wikipedia](https://en.wikipedia.org/wiki/PID_controller):
